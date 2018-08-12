@@ -22,12 +22,11 @@
     dispatch_time_t overTime ;
 
 }
-@property(atomic, strong) NSLock *lock;
-
 
 @end
 
 @implementation JQPlistManager
+
 - (instancetype)init
 {
     self = [super init];
@@ -40,6 +39,7 @@
 }
 
 #pragma mark - --操作用户基本配置
+
 -(void(^)(void))nativeConfigOperate:(NSArray<NSString *>*(^)(void))pathBlock handle:(void(^)(NSMutableDictionary *lastDic, id value))handleBlock
 {
     NSAssert(pathBlock != nil, @"路径不能为空");
@@ -106,7 +106,7 @@
             NSMutableDictionary *tempDic = bigDic_WS;
             NSInteger count = keypathArr_WS.count-1;
             
-            //for 遍历
+            //for 遍历，后期我将尝试用节点的方式来设计算法
             for (int i=0; i<count; i++) {
                 
                 if (i == count-1) {

@@ -9,8 +9,8 @@
 #import "SecondVC.h"
 #import "JQPlistManager.h"
 @interface SecondVC ()
-@property(nonatomic, strong)JQPlistManager *c;
-@property(atomic, strong) NSLock *lock;
+@property(nonatomic, strong)JQPlistManager *manager;
+
 @end
 
 @implementation SecondVC
@@ -20,41 +20,19 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor redColor];
     
-    _c = [[JQPlistManager alloc]init];
-    _lock = [NSLock new];
+    _manager = [[JQPlistManager alloc]init];
 }
+
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-
-    
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        
-        
-//    [self.c nativeConfigOperate:^NSArray<NSString *> *{
-//
-//        return @[@"A",@"B",@"bbb",@"D",@"E",@"E_key"];
-//    } handle:^void(NSMutableDictionary *valueLastDic, id value) {
-//        NSLog(@"返回结果 dic==%@， value==%@",valueLastDic,value);
-//
-//        //查询的值所在的字典为空，路径不对
-////        NSAssert(valueLastDic != nil, @"路径错误");
-////        [valueLastDic setValue:@"+++++" forKey:@"one"];
-////        [valueLastDic removeObjectForKey:@"E_key"];
-////        if (valueLastDic != nil) {//查询到值不为空
-////
-////        }else{//否则不是查询操作或者键值对不存在为空,或者路径不对
-////
-////        }
-//    }]();
-    });
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
         
         
-        [self.c nativeConfigOperate:^NSArray<NSString *> *{
+        [self.manager nativeConfigOperate:^NSArray<NSString *> *{
             
             /**
              返回路径
@@ -66,7 +44,7 @@
             }
              */
             
-            return @[@"a",@"key"];
+            return @[@"BaseConfig",@"key"];
         } handle:^void(NSMutableDictionary *valueLastDic, id value) {
             NSLog(@"返回结果 dic==%@， value==%@",valueLastDic,value);
             if (valueLastDic != nil && value == nil) {
@@ -87,10 +65,9 @@
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
         
-        
-        [self.c nativeConfigOperate:^NSArray<NSString *> *{
+        [self.manager nativeConfigOperate:^NSArray<NSString *> *{
             
-            return @[@"ccc"];
+            return @[@"UserInfo"];
         } handle:^void(NSMutableDictionary *valueLastDic, id value) {
             NSLog(@"返回结果 dic==%@， value==%@",valueLastDic,value);
             
