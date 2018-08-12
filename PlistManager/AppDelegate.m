@@ -21,13 +21,13 @@
     NSLog(@"%@",NSHomeDirectory());
     
     // 数据库路径-沙盒路径
-    NSString *fileName = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"jq_config/omg-chat_InfoConfig.plist"];
+    NSString *fileName = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"config/InfoConfig.plist"];
     
     // 复制本地数据到沙盒中
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
     // 获得数据库文件在工程中的路径——源路径。
-    NSString *sourcesPath = [[NSBundle mainBundle] pathForResource:@"omg-chat_InfoConfig" ofType:@"plist"];
+    NSString *sourcesPath = [[NSBundle mainBundle] pathForResource:@"InfoConfig" ofType:@"plist"];
     [fileManager removeItemAtPath:fileName error:nil];
     if (![fileManager fileExistsAtPath:fileName]) {
         

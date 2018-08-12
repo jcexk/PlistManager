@@ -47,7 +47,7 @@
     dispatch_semaphore_wait(signal, overTime);
     
     ///沙盒 plist 路径，不要放在工程目录下，没有权限去修改。
-    NSString *infoplistPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"jq_config/omg-chat_InfoConfig.plist"];
+    NSString *infoplistPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"config/InfoConfig.plist"];
     
     NSArray <NSString *>* keypathArr = pathBlock();
     
