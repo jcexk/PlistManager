@@ -15,6 +15,9 @@
 		CCFE9E9F2120773B0019E9B7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFE9E9E2120773B0019E9B7 /* main.m */; };
 		CCFE9EA92120773B0019E9B7 /* PlistManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFE9EA82120773B0019E9B7 /* PlistManagerTests.m */; };
 		CCFE9EB42120773B0019E9B7 /* PlistManagerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFE9EB32120773B0019E9B7 /* PlistManagerUITests.m */; };
+		CCFE9EC62120775A0019E9B7 /* SecondVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFE9EC2212077590019E9B7 /* SecondVC.m */; };
+		CCFE9EC72120775A0019E9B7 /* omg-chat_InfoConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCFE9EC32120775A0019E9B7 /* omg-chat_InfoConfig.plist */; };
+		CCFE9EC82120775A0019E9B7 /* JQPlistManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFE9EC52120775A0019E9B7 /* JQPlistManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,11 @@
 		CCFE9EAF2120773B0019E9B7 /* PlistManagerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlistManagerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCFE9EB32120773B0019E9B7 /* PlistManagerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlistManagerUITests.m; sourceTree = "<group>"; };
 		CCFE9EB52120773B0019E9B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCFE9EC1212077590019E9B7 /* JQPlistManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JQPlistManager.h; sourceTree = "<group>"; };
+		CCFE9EC2212077590019E9B7 /* SecondVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondVC.m; sourceTree = "<group>"; };
+		CCFE9EC32120775A0019E9B7 /* omg-chat_InfoConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "omg-chat_InfoConfig.plist"; sourceTree = "<group>"; };
+		CCFE9EC42120775A0019E9B7 /* SecondVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondVC.h; sourceTree = "<group>"; };
+		CCFE9EC52120775A0019E9B7 /* JQPlistManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQPlistManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +113,11 @@
 				CCFE9E902120773B0019E9B7 /* AppDelegate.m */,
 				CCFE9E922120773B0019E9B7 /* ViewController.h */,
 				CCFE9E932120773B0019E9B7 /* ViewController.m */,
+				CCFE9EC1212077590019E9B7 /* JQPlistManager.h */,
+				CCFE9EC52120775A0019E9B7 /* JQPlistManager.m */,
+				CCFE9EC32120775A0019E9B7 /* omg-chat_InfoConfig.plist */,
+				CCFE9EC42120775A0019E9B7 /* SecondVC.h */,
+				CCFE9EC2212077590019E9B7 /* SecondVC.m */,
 				CCFE9E952120773B0019E9B7 /* Main.storyboard */,
 				CCFE9E982120773B0019E9B7 /* Assets.xcassets */,
 				CCFE9E9A2120773B0019E9B7 /* LaunchScreen.storyboard */,
@@ -238,6 +251,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCFE9EC72120775A0019E9B7 /* omg-chat_InfoConfig.plist in Resources */,
 				CCFE9E9C2120773B0019E9B7 /* LaunchScreen.storyboard in Resources */,
 				CCFE9E992120773B0019E9B7 /* Assets.xcassets in Resources */,
 				CCFE9E972120773B0019E9B7 /* Main.storyboard in Resources */,
@@ -267,6 +281,8 @@
 			files = (
 				CCFE9E942120773B0019E9B7 /* ViewController.m in Sources */,
 				CCFE9E9F2120773B0019E9B7 /* main.m in Sources */,
+				CCFE9EC82120775A0019E9B7 /* JQPlistManager.m in Sources */,
+				CCFE9EC62120775A0019E9B7 /* SecondVC.m in Sources */,
 				CCFE9E912120773B0019E9B7 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,8 +1,8 @@
 //
 //  AppDelegate.m
-//  PlistManager
+//  AAAAAA
 //
-//  Created by 江其 on 2018/8/12.
+//  Created by 江其 on 2018/8/7.
 //  Copyright © 2018年 江其. All rights reserved.
 //
 
@@ -17,6 +17,38 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    NSLog(@"%@",NSHomeDirectory());
+    
+    // 数据库路径-沙盒路径
+    NSString *fileName = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"jq_config/omg-chat_InfoConfig.plist"];
+    
+    // 复制本地数据到沙盒中
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    // 获得数据库文件在工程中的路径——源路径。
+    NSString *sourcesPath = [[NSBundle mainBundle] pathForResource:@"omg-chat_InfoConfig" ofType:@"plist"];
+    [fileManager removeItemAtPath:fileName error:nil];
+    if (![fileManager fileExistsAtPath:fileName]) {
+        
+        NSError *error ;
+        
+        NSString *dirPath = [fileName stringByDeletingLastPathComponent];
+        
+        BOOL isSuccess = [fileManager createDirectoryAtPath:dirPath withIntermediateDirectories:YES attributes:nil error:&error];
+        if (error) {
+            NSLog(@"creat File Failed. errorInfo:%@",error);
+        }
+        if (isSuccess) {
+            if ([fileManager moveItemAtPath:sourcesPath toPath:fileName error:&error]){
+                
+                NSLog(@"数据库移动成功");
+            } else {
+                NSLog(@"数据库移动失败:%@",error);
+            }
+        }
+    }
+    
     return YES;
 }
 
@@ -49,3 +81,4 @@
 
 
 @end
+
