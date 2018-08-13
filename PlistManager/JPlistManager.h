@@ -20,5 +20,5 @@
  @param handleBlock 数据操作
  @return 这个闭包是用来存储更新到本地，如果这是查询不需要更新本地，可以不调用这个返回值
  */
--(void(^)(void))nativeConfigOperate:(NSArray<NSString *>*(^)(void))pathBlock handle:(void(^)(NSMutableDictionary *lastDic, id value))handleBlock;
+-(void(^)(void))nativeConfigOperate:(NSArray<NSString *>*(^)(void))pathBlock handle:(void(^)(NSMutableDictionary *valueLastDic, id value))handleBlock;
 @end

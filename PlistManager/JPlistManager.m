@@ -40,7 +40,7 @@
 
 #pragma mark - --操作用户基本配置
 
--(void(^)(void))nativeConfigOperate:(NSArray<NSString *>*(^)(void))pathBlock handle:(void(^)(NSMutableDictionary *lastDic, id value))handleBlock
+-(void(^)(void))nativeConfigOperate:(NSArray<NSString *>*(^)(void))pathBlock handle:(void(^)(NSMutableDictionary *valueLastDic, id value))handleBlock
 {
     NSAssert(pathBlock != nil, @"路径不能为空");
 

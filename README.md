@@ -22,8 +22,9 @@
         NSLog(@"最后一个 key 不存在");
     }
     //如果路径不对：
-        A:最后一个路径之前的路径不对，返回是两个参数都是 nil，则最后writeToFile 依然是之前已经存在的 plist 文件，不会改变
-        B:如果是最后一个路径不存在，那么返回的valueLastDic为查询路径的上一个dic，那工程里面的 InfoConfig.plist 举例如：@[@"c"]，那么valueLastDic就是整个plist字典，如果：@[@"a",@"aa"],那么valueLastDic就是路径 a 下的字典。 增删改这些字典最后writeToFile是操作过的数据。
+    -  A:在最后一个路径之前就已经有路径不存在，那么返回valueLastDic，value两个参数都是 nil，并且最后writeToFile 依然是之前已经存在的 plist 文件，plist 文件不会改变。
+    - B:如果是之前的路径没有问题，路径都是存在的，只是最后一个路径不存在，那么返回的valueLastDic为查询路径的上一个dic，那工程里面的 InfoConfig.plist 举例如：@[@"c"]，那么valueLastDic就是整个plist字典，如果：@[@"BaseConfig",@"aa"],那么valueLastDic就是路径 BaseConfig 下的字典。 增删改这些字典最后writeToFile是操作过的数据。
+    返回值 block：调用这个闭包用来执行writeToFile存储更新到本地，如果这是查询不需要更新本地，可以不执行这个block。
     //查询的值所在的字典为空，路径不对
     [valueLastDic setValue:@"--E_key-" forKey:@"E_key"];
     [valueLastDic setValue:@"--E_key-" forKey:@"a_key"];
