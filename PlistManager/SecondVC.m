@@ -2,14 +2,14 @@
 //  SecondVC.m
 //  AAAAAA
 //
-//  Created by 江其 on 2018/8/7.
-//  Copyright © 2018年 江其. All rights reserved.
+//  Created by  on 2018/8/7.
+//  Copyright © 2018年 . All rights reserved.
 //
 
 #import "SecondVC.h"
-#import "JQPlistManager.h"
+#import "JPlistManager.h"
 @interface SecondVC ()
-@property(nonatomic, strong)JQPlistManager *manager;
+@property(nonatomic, strong)JPlistManager *manager;
 
 @end
 
@@ -20,7 +20,7 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor redColor];
     
-    _manager = [[JQPlistManager alloc]init];
+    _manager = [[JPlistManager alloc]init];
 }
 
 

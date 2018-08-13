@@ -1,14 +1,14 @@
 //
-//  JQPlistManager.h
+//  JPlistManager.h
 //  AAAAAA
 //
-//  Created by 江其 on 2018/8/7.
-//  Copyright © 2018年 江其. All rights reserved.
+//  Created by  on 2018/8/7.
+//  Copyright © 2018年 . All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface JQPlistManager : NSObject
+@interface JPlistManager : NSObject
 
 ///禁止 new
 +(instancetype) new __attribute__((unavailable("call alloc init instead")));

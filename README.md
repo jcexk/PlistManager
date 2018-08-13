@@ -2,7 +2,7 @@
 ## 警告如果需要修改代码，一定注意dispatch_semaphore_signal(signal);dispatch_semaphore_wait(signal, overTime);需要平衡。dispatch_semaphore_t GCD 线程锁的知识暂不在这里讨论，有兴趣的朋友网上了解或者Q加2542700177。
 
 ### 调用方式
-    [[JQPlistManager new] nativeConfigOperate:^NSArray<NSString *> *{
+    [[JPlistManager new] nativeConfigOperate:^NSArray<NSString *> *{
         //设置 plist 文件路径
         /**
         返回路径

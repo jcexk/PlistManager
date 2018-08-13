@@ -1,12 +1,12 @@
 //
-//  JQPlistManager.m
+//  JPlistManager.m
 //  AAAAAA
 //
-//  Created by 江其 on 2018/8/7.
-//  Copyright © 2018年 江其. All rights reserved.
+//  Created by  on 2018/8/7.
+//  Copyright © 2018年 . All rights reserved.
 //
 
-#import "JQPlistManager.h"
+#import "JPlistManager.h"
 
 
 ///block描述
@@ -14,7 +14,7 @@
 ///block描述
 #define StrongObj(o) __strong typeof(o) o##S = o;
 
-@interface JQPlistManager()
+@interface JPlistManager()
 {
     ///GCD 线程锁
     dispatch_semaphore_t signal;
@@ -25,7 +25,7 @@
 
 @end
 
-@implementation JQPlistManager
+@implementation JPlistManager
 
 - (instancetype)init
 {
