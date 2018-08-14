@@ -50,7 +50,7 @@
     dispatch_semaphore_wait(self.signal, self.overTime);
     
     ///沙盒 plist 路径，不要放在工程目录下，没有权限去修改。
-    NSString *infoplistPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"config/omg-chat_InfoConfig.plist"];
+    NSString *infoplistPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"config/InfoConfig.plist"];
     
     NSArray <NSString *>* keypathArr = pathBlock();
     
@@ -91,16 +91,19 @@
          optimize：
          应该采用链表结构设计，
          */
-#warning 最结束处一定要调用线程解锁
-        //在返回 block 的时候一定要解锁，否则会阻塞线程
-        dispatch_semaphore_wait(self.signal, self.overTime);
-        
         //用 strong 修饰防止weak 修饰的对象释放，而 block 对其内部创建的对象并不会再一次的强引用
         StrongObj(keypathArr_W);
         StrongObj(infoplistPath_W);
         StrongObj(lastDic_W);
         StrongObj(bigDic_W);
         
+        if (lastDic_WS == nil) {//如果返回的lastDic为空，最后writeToFile依然是之前已经存在的数据，故没有必要去执行
+            return ;
+        }
+        
+#warning 最结束处一定要调用线程解锁
+        //在返回 block 的时候一定要解锁，否则会阻塞线程
+        dispatch_semaphore_wait(self.signal, self.overTime);
         
         if (keypathArr_WS.count == 1) {//第一层
             bigDic_WS = lastDic_WS;
@@ -149,9 +152,9 @@
         dispatch_semaphore_signal(self.signal);
         
     };
-    
-    handleBlock(lastDic, lastDic[keypathArr[keypathArr.count-1]]);
     dispatch_semaphore_signal(self.signal);
+    handleBlock(lastDic, lastDic[keypathArr[keypathArr.count-1]]);
+    
     return handleFinishBlock;
 }
 

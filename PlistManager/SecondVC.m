@@ -30,7 +30,7 @@
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
-        
+        NSLog(@"开始");
         
         [JPlistManager.shareInstance nativeConfigOperate:^NSArray<NSString *> *{
             
@@ -60,11 +60,12 @@
                 
             }
         }]();
+        NSLog(@"结束");
     });
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
-        
+        NSLog(@"开始---");
         [JPlistManager.shareInstance nativeConfigOperate:^NSArray<NSString *> *{
             
             return @[@"UserInfo"];
@@ -81,6 +82,7 @@
                 
             }
         }]();
+        NSLog(@"结束---");
     });
     
    
