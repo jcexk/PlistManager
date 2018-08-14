@@ -9,7 +9,7 @@
 #import "SecondVC.h"
 #import "JPlistManager.h"
 @interface SecondVC ()
-@property(nonatomic, strong)JPlistManager *manager;
+//@property(nonatomic, strong)JPlistManager *manager;
 
 @end
 
@@ -20,7 +20,7 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor redColor];
     
-    _manager = [[JPlistManager alloc]init];
+//    _manager = [[JPlistManager alloc]init];
 }
 
 
@@ -32,7 +32,7 @@
         
         
         
-        [self.manager nativeConfigOperate:^NSArray<NSString *> *{
+        [JPlistManager.shareInstance nativeConfigOperate:^NSArray<NSString *> *{
             
             /**
              返回路径
@@ -65,7 +65,7 @@
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
         
-        [self.manager nativeConfigOperate:^NSArray<NSString *> *{
+        [JPlistManager.shareInstance nativeConfigOperate:^NSArray<NSString *> *{
             
             return @[@"UserInfo"];
         } handle:^void(NSMutableDictionary *valueLastDic, id value) {
