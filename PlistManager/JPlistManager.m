@@ -41,6 +41,19 @@
     return (JPlistManager *)instanceSingleton;
 }
 
+
+-(id)queryForPaths:(NSArray <NSString *>*)paths
+{
+    __block id queryResult = nil;
+    [self nativeConfigOperate:^NSArray<NSString *> *{
+        return paths;
+    } handle:^(NSMutableDictionary *valueLastDic, id value) {
+        //        block(value);
+        queryResult = value;
+    }];
+    return queryResult;
+}
+
 #pragma mark - --操作用户基本配置
 
 -(void(^)(void))nativeConfigOperate:(NSArray<NSString *>*(^)(void))pathBlock handle:(void(^)(NSMutableDictionary *valueLastDic, id value))handleBlock
@@ -83,7 +96,7 @@
     WeakObj(keypathArr);
     WeakObj(infoplistPath);
     WeakObj(lastDic);
-    WeakObj(bigDic);
+//    WeakObj(bigDic);
     
     void(^handleFinishBlock)(void) = ^{
         
@@ -95,8 +108,8 @@
         StrongObj(keypathArr_W);
         StrongObj(infoplistPath_W);
         StrongObj(lastDic_W);
-        StrongObj(bigDic_W);
-        
+//        StrongObj(bigDic_W);
+        NSMutableDictionary *bigDic_WS = [NSMutableDictionary dictionaryWithContentsOfFile:infoplistPath_WS];
         if (lastDic_WS == nil) {//如果返回的lastDic为空，最后writeToFile依然是之前已经存在的数据，故没有必要去执行
             return ;
         }

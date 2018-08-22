@@ -30,39 +30,52 @@
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
-        NSLog(@"开始");
+        NSLog(@"开始===%@",[JPlistManager.shareInstance queryForPaths:@[kBaseConfigKey,@"key"]]);
         
         [JPlistManager.shareInstance nativeConfigOperate:^NSArray<NSString *> *{
             
-            /**
-             返回路径
-             如：
-             A:{
-                 B:{
-                     key:value
-                 }
-            }
-             */
-            
-            return @[@"BaseConfig",@"key"];
+            return @[kBaseConfigKey,@"key"];
         } handle:^void(NSMutableDictionary *valueLastDic, id value) {
             NSLog(@"返回结果 dic==%@， value==%@",valueLastDic,value);
             if (valueLastDic != nil && value == nil) {
                 NSLog(@"最后一个 key 不存在");
             }
             //查询的值所在的字典为空，路径不对
-            [valueLastDic setValue:@"--E_key-" forKey:@"E_key"];
-            [valueLastDic setValue:@"--E_key-" forKey:@"a_key"];
+            valueLastDic[@"key1"] = @"value1";
+//            [valueLastDic setValue:@"--E_key-" forKey:@"E_key"];
+//            [valueLastDic setValue:@"--E_key-" forKey:@"a_key"];
             [valueLastDic removeObjectForKey:@"key"];
             if (valueLastDic != nil) {//查询到值不为空
                 
             }else{//否则不是查询操作或者键值对不存在为空,或者路径不对
                 
             }
+            
+            [JPlistManager.shareInstance nativeConfigOperate:^NSArray<NSString *> *{
+                
+                return @[kUserInfoKey,@"key1"];
+            } handle:^void(NSMutableDictionary *valueLastDic, id value) {
+                NSLog(@"返回结果 dic==%@， value==%@",valueLastDic,value);
+                if (valueLastDic != nil && value == nil) {
+                    NSLog(@"最后一个 key 不存在");
+                }
+                //查询的值所在的字典为空，路径不对
+                valueLastDic[@"key2"] = @"value2";
+                //            [valueLastDic setValue:@"--E_key-" forKey:@"E_key"];
+                //            [valueLastDic setValue:@"--E_key-" forKey:@"a_key"];
+                [valueLastDic removeObjectForKey:@"key"];
+                if (valueLastDic != nil) {//查询到值不为空
+                    
+                }else{//否则不是查询操作或者键值对不存在为空,或者路径不对
+                    
+                }
+            }]();
+        NSLog(@"%@",valueLastDic);
         }]();
+        
         NSLog(@"结束");
     });
-    
+    return;
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
         NSLog(@"开始---");

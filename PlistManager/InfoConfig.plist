@@ -2,13 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>key</key>
-	<string>value</string>
+	<key>version</key>
+	<string>1.0.0</string>
 	<key>UserInfo</key>
 	<dict>
-		<key>A_key</key>
+		<key>my_key</key>
 		<string>A_value</string>
-		<key>B</key>
+		<key>my_B</key>
 		<dict>
 			<key>B_key</key>
 			<string>B_value</string>
@@ -29,11 +29,9 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>BaseConfig</key>
+	<key>BasicConfig</key>
 	<dict>
-		<key>a_key</key>
-		<string>a_value</string>
-		<key>key</key>
+		<key>bc_key</key>
 		<string>value</string>
 	</dict>
 </dict>

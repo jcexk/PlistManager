@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+static NSString * const kUserInfoKey = @"UserInfo";
+static NSString * const kBaseConfigKey = @"BasicConfig";
+
 @interface JPlistManager : NSObject
 
 +(instancetype)alloc __attribute__((unavailable("call shareInstance instead")));
@@ -15,6 +18,8 @@
 +(instancetype) new __attribute__((unavailable("call shareInstance instead")));
 
 @property (class, readonly, strong) JPlistManager *shareInstance;
+
+-(id)queryForPaths:(NSArray <NSString *>*)paths;
 
 /**
  操作plist
